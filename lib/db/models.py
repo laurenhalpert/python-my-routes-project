@@ -23,8 +23,8 @@ class Route(Base):
     id = Column(Integer(), primary_key = True)
     departure_city = Column(String())
     arrival_city = Column(String())
-    departure_time = Column(DateTime())
-    arrival_time = Column(DateTime())
+    departure_time = Column(Integer())
+    arrival_time = Column(Integer())
 
     def __repr__(self):
         print(f'Route {departure_city} to {arrival_city} has id {id}. It departs at {departure_time} and arrives at {arrival_time}.')
@@ -39,8 +39,8 @@ class Plane(Base):
     plane_type = Column(String())
     passenger_limit = Column(Integer())
 
-    airline = relationship('Airline', back_populates = 'planes')
-    route = relationship('Route', back_populates = 'planes')
+    # airline = relationship('Airline', backref = backref('plane'))
+    # route = relationship('Route', backref = backref('plane'))
 
     
 
@@ -55,7 +55,7 @@ class Passenger(Base):
     passenger_age = Column(Integer())
     plane_id = ForeignKey('planes.id')
 
-    plane = relationship ('Plane', back_populates='passengers')
+    # plane = relationship ('Plane', back_populates='passengers')
 
     
 
