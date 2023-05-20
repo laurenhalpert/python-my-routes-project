@@ -14,6 +14,8 @@ class Airline(Base):
     id = Column(Integer(), primary_key = True)
     airline_name = Column(String())
 
+    planes = relationship('Plane', backref = backref('airline'))
+
     def __repr__(self):
         print(f'Airline, {airline_name}, has id {id}')
 
@@ -41,8 +43,8 @@ class Plane(Base):
     plane_type = Column(String())
     passenger_limit = Column(Integer())
 
-    # airline = relationship('Airline', backref = backref('plane'))
-    # route = relationship('Route', backref = backref('plane'))
+    airline = relationship('Airline', backref = backref('plane'))
+    route = relationship('Route', backref = backref('plane'))
 
     #Plane & Passengers have a one to many relationship
     passengers = relationship('Passenger', backref=backref('plane'))
