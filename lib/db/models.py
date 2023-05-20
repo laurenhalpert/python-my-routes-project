@@ -55,7 +55,7 @@ class Passenger(Base):
     id = Column(Integer(), primary_key = True)
     passenger_name = Column(String())
     passenger_age = Column(Integer())
-    plane_id = ForeignKey('planes.id')
+    
 
     
 
