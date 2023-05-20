@@ -10,6 +10,13 @@ if __name__ == '__main__':
     engine = create_engine('sqlite:///trip.db')
     Session = sessionmaker(bind=engine)
     session = Session()
+    def delete_records():
+        session.query(Airline).delete()
+        session.query(Route).delete()
+        session.query(Passenger).delete()
+        session.query(Plane).delete()
+        session.commit()
+    delete_records()
 
     fake = Faker()
 
@@ -44,7 +51,9 @@ if __name__ == '__main__':
     for i in range(50):
         plane = Plane(
             plane_type = random.choice(plane_types),
-            passenger_limit = random.randint(120, 300)
+            passenger_limit = random.randint(120, 300),
+            airline_id = random.randint(1, 5),
+            route_id = random.randint(1, 50)
         )
         session.add(plane)
         session.commit()
@@ -54,7 +63,8 @@ if __name__ == '__main__':
     for i in range(1000):
         passenger = Passenger(
             passenger_name = fake.unique.name(),
-            passenger_age = random.randint(15,90)
+            passenger_age = random.randint(15,90),
+            plane_id = random.randint(1, 50)
         )
         session.add(passenger)
         session.commit()

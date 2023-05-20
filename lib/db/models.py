@@ -42,6 +42,8 @@ class Plane(Base):
     # airline = relationship('Airline', backref = backref('plane'))
     # route = relationship('Route', backref = backref('plane'))
 
+    #Plane & Passengers have a one to many relationship
+    # passengers = relationship('Passenger', backref=backref('plane'))
     
 
     def __repr__(self):
@@ -55,7 +57,7 @@ class Passenger(Base):
     passenger_age = Column(Integer())
     plane_id = ForeignKey('planes.id')
 
-    # plane = relationship ('Plane', back_populates='passengers')
+    
 
     
 
