@@ -26,6 +26,8 @@ class Route(Base):
     departure_time = Column(Integer())
     arrival_time = Column(Integer())
 
+    planes = relationship('Plane', backref = backref('route'))
+
     def __repr__(self):
         print(f'Route {departure_city} to {arrival_city} has id {id}. It departs at {departure_time} and arrives at {arrival_time}.')
 
