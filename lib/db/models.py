@@ -14,7 +14,7 @@ class Airline(Base):
     id = Column(Integer(), primary_key = True)
     airline_name = Column(String())
 
-    planes = relationship('Plane', backref = backref('airline'))
+    # planes = relationship('Plane', backref = backref('airline'))
 
     def __repr__(self):
         print(f'Airline, {airline_name}, has id {id}')
@@ -28,7 +28,7 @@ class Route(Base):
     departure_time = Column(Integer())
     arrival_time = Column(Integer())
 
-    planes = relationship('Plane', backref = backref('route'))
+    # planes = relationship('Plane', backref = backref('route'))
 
     def __repr__(self):
         print(f'Route {departure_city} to {arrival_city} has id {id}. It departs at {departure_time} and arrives at {arrival_time}.')
@@ -43,8 +43,8 @@ class Plane(Base):
     plane_type = Column(String())
     passenger_limit = Column(Integer())
 
-    airline = relationship('Airline', backref = backref('plane'))
-    route = relationship('Route', backref = backref('plane'))
+    # airline = relationship('Airline', backref = backref('plane'))
+    # route = relationship('Route', backref = backref('plane'))
 
     #Plane & Passengers have a one to many relationship
     passengers = relationship('Passenger', backref=backref('plane'))

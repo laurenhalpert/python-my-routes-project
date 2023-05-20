@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from models import Airline, Route, Plane, Passenger
 
 if __name__ == '__main__':
-    engine = create_engine('sqlite:///freebies.db')
+    engine = create_engine('sqlite:///trip.db')
     Session = sessionmaker(bind=engine)
     session = Session()
     import ipdb; ipdb.set_trace()
