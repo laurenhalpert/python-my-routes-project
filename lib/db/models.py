@@ -103,7 +103,7 @@ class Passenger(Base):
     plane_id = Column(ForeignKey('planes.id'))
 
     
-    # plane = relationship('Plane', backref='passenger')
+    
     
 
     def __repr__(self):
