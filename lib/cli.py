@@ -4,10 +4,7 @@
 #         self.value = user_input
 
 # move to helpers.py
-def create_flight_report(passenger_flights):
-    with open('./cli.text', 'w') as fr:
-        for flight in passenger_flights:
-            fr.write(flight + '\n')
+from helpers import create_flight_report
 
 if __name__ == '__main__':
     passenger_flights = []
