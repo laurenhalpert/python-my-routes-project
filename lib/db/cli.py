@@ -32,18 +32,41 @@ if __name__ == '__main__':
     if retrieve_passenger_info(name):
         print(f'Hello, {name}.')
         print('What actions would you like to take today?')
-        menu = input('"view my info", "view my flight info", "change my flight", "cancel my flight", or "exit": ')
+        menu = input('"view my info", "manage my flight", or "exit": ')
         if menu == 'view my info':
             print('Here is your info: ')
             view_my_info(name)
             edit_choice = input('Would you like to edit your info? y/n : ')
             if edit_choice == 'y':
                 edit = input('Name, Age :')
-                edit
+                print('Here is your updated info: ')
+                view_my_info(name)
+                print(f'Thanks for visiting {name}. Goodbye!')
             elif edit_choice == 'n':
                 # menu = input('"view my info", "view my flight info", "change my flight", "cancel my flight", or "exit": ')
                 # menu
                 print(f'Thanks for visiting {name}. Goodbye!')
+        elif menu == 'manage my flight':
+            print('Here is your flight info: ')
+            # pull up route info associated with their flight
+            manage_options = input('Select an action: "change flight", "cancel flight", or "exit" : ')
+            if manage_options == "change flight":
+                print("Okay! Let's change your flight.")
+                change_flight = input('new route details')
+                # function to update route
+                print('Here is your updated flight info: ')
+                print(f'Thanks for visiting {name}. Goodbye!')
+            elif manage_options == "cancel flight":
+                print("We're sorry you won't be flying with us.")
+                # function to delete flight reservation
+                print("We have canceled your flight.")
+                print(f'Thanks for visiting {name}. Goodbye!')
+            elif manage_options == 'exit':
+                print(f'Thanks for visiting {name}. Goodbye!')
+            pass
+        
+        elif menu == 'exit':
+            print(f'Thanks for visiting {name}. Goodbye!')
 
     # if retrieve_passenger_info(name):
     #     print (f'Hello, {name}.')
