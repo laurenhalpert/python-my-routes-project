@@ -62,11 +62,13 @@ if __name__ == '__main__':
                 print("We have canceled your flight.")
                 print(f'Thanks for visiting {name}. Goodbye!')
             elif manage_options == 'exit':
-                print(f'Thanks for visiting {name}. Goodbye!')
+                print(f'Thanks for visiting, {name}. Goodbye!')
             pass
         
         elif menu == 'exit':
             print(f'Thanks for visiting {name}. Goodbye!')
+        else:
+            print('Sorry, that is not an option. Please select from the given options.')
 
     # if retrieve_passenger_info(name):
     #     print (f'Hello, {name}.')
